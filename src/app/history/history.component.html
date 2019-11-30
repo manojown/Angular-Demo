@@ -1,0 +1,15 @@
+<div class="col old-item-list">
+    <div class="card" *ngIf="searchCount > 1">
+        <div class="card-header" >
+            Previous history
+        </div>
+        <ul class="list-group list-group-flush" *ngFor="let item of oldUsers">
+            <a style="cursor: pointer;" (click)="callRepo(item)">
+                <li class="list-group-item">
+                <strong>{{item.login}}</strong>
+                <span>  Repos :{{item.repos.length}} </span>
+            </li>
+            </a>
+        </ul>
+    </div>
+</div>

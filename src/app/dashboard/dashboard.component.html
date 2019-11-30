@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <form (submit)="searchUser()">
+        <div class="row">
+            
+            <div class="col-sm-9">
+                <input
+                    id="typeahead-focus"
+                    type="text"
+                    name="usrename"
+                    class="form-control form-control-lg search-box"
+                    [(ngModel)]="username"
+                    [ngbTypeahead]="search"
+                    [inputFormatter]="formatter"
+                    [resultFormatter]="formatter"
+                    (focus)="focus$.next($event.target.value)"
+                    (click)="click$.next($event.target.value)"
+                    #instance="ngbTypeahead"
+                    placeholder="Search by user name"
+                    />
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+        </div>
+    </form>
+    <app-user-card [userDetails]="userDetails" [repositories]="repositories" [oldUsers]="oldUsers" [searchCount]="searchCount" (fetchHistory)="callRepo($event)"></app-user-card>
+</div>
+

@@ -1,0 +1,24 @@
+<div class="row repo-container">
+  <app-history [searchCount]="searchCount" [oldUsers]="oldUsers" (getHistory)="getHistory($event)"></app-history>
+    <div class="col">
+        <div class="card-header mb-3" style="width:100%" *ngIf="userDetails">
+            <div class=row>
+                <div class="col">
+                    <img [src]="userDetails.avatar_url" class="img-circle" style="width:70px;height: 70px;">
+                </div>
+                <div class="col">
+                    <span><strong>{{userDetails.name}}</strong></span>
+                    <p class="title">{{userDetails.location}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="list-group col" *ngFor="let item of repositories.slice(0,5)">
+            <div class="list-group-item" style="width:100%" >
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <p class="card-text">star count: {{item.stargazers_count}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
